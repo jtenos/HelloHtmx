@@ -1,0 +1,18 @@
+#people-index-table span.loading {
+  display: none;
+}
+#people-index-table tr.htmx-request td a {
+  display: none;
+}
+#people-index-table tr.htmx-request td span.loading {
+  display: inline;
+}
+#people-index-table tr.htmx-request td span.content {
+  display: none;
+}
+
+body {
+  background-color: #eee;
+}
+
+/*# sourceMappingURL=site.css.map */

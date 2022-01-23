@@ -1,0 +1,10 @@
+﻿@page
+@{
+    Layout = null;
+}
+<span
+    hx-get
+    hx-page="/Helpers/Servertime"
+    hx-trigger="load delay:1s"
+    hx-swap="outerHTML"
+>@DateTime.Now.ToString("HH\\:mm\\:ss")</span>

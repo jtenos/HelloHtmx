@@ -1,0 +1,26 @@
+﻿@page
+
+@using HelloHtmx.DataModels
+
+@model HelloHtmx.Pages.People.IndexModel
+
+@{
+}
+
+<table id="people-index-table">
+    <thead>
+        <tr>
+            <th>Person ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody hx-target="closest tr"
+           hx-swap="outerHTML"
+           hx-indicator="closest tr">
+        @foreach (Person p in Model.People)
+        {
+            <partial name="~/Pages/People/_Row.cshtml" model="p" />
+        }
+    </tbody>
+</table>

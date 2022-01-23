@@ -1,0 +1,25 @@
+﻿@model HelloHtmx.DataModels.Person
+
+@{
+}
+
+@if (Model != null)
+{
+    <tr id="person-row-@Model.PersonID">
+        <td>
+            @Model.PersonID
+            <a href="#"
+               hx-get
+               hx-page="/People/EditRow"
+               hx-route-PersonID="@Model.PersonID"
+            >Edit</a>
+        </td>
+        <td>
+            <span class="content">@Model.Name</span>
+            <span class="loading">Loading...</span>
+        </td>
+        <td>
+            <span class="content">@Model.Age</span>
+        </td>
+    </tr>
+}

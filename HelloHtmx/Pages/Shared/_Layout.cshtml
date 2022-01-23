@@ -1,0 +1,41 @@
+﻿@using Microsoft.Extensions.Hosting
+@using Htmx.TagHelpers
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment HostEnvironment
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="htmx-config" includeAspNetAntiforgeryToken="true" />
+    <title>HelloHtmx</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        Server Time:
+        <span
+            hx-get
+            hx-page="/Helpers/ServerTime"
+            hx-trigger="load"
+            hx-swap="outerHTML"
+        >Loading...</span>
+    </footer>
+
+    @if (HostEnvironment.IsDevelopment())
+    {
+        <script src="~/lib/htmx.org/v1.6.1/htmx.js"></script>
+    }
+    else
+    {
+        <script src="~/lib/htmx.org/v1.6.1/htmx.min.js"></script>
+    }
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    @Html.HtmxAntiforgeryScript()
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿#people-index-table {
+
+    span.loading {
+        display: none;
+    }
+
+    tr.htmx-request {
+        td {
+            a {
+                display: none;
+            }
+
+            span.loading {
+                display: inline;
+            }
+
+            span.content {
+                display: none;
+            }
+        }
+    }
+}

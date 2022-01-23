@@ -1,0 +1,25 @@
+﻿@page
+@model HelloHtmx.Pages.People.EditRowModel
+@{
+    Layout = null;
+}
+
+<tr>
+    <td>
+        @Model.Person.PersonID
+        <input type="hidden" asp-for="Person.PersonID" />
+        <a href="#"
+           hx-post
+           hx-page="/People/SaveRow"
+           hx-include="closest tr"
+        >Save</a>
+    </td>
+    <td>
+        <span class="content"><input asp-for="Person.Name" /></span>
+        <span class="loading">Loading...</span>
+    </td>
+    <td>
+        <span class="content"><input asp-for="Person.Age" /></span>
+        
+    </td>
+</tr>
